@@ -6,7 +6,8 @@ import (
 	"os/exec"
 )
 
-const doneCommand = `/usr/local/bin/t30-on`
+// change me!
+const doneCommand = `/usr/local/bin/s2-off`
 
 //Done A handler for octorpint server print done event.
 func Done(w http.ResponseWriter, r *http.Request) {
