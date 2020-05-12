@@ -14,11 +14,11 @@ func Done(w http.ResponseWriter, r *http.Request) {
 
 	delayInMinutes := "0"
 	if !ok || len(delays[0]) < 1 {
-		log.Println("No delay!")
 	} else {
 		delayInMinutes = delays[0]
 	}
 
+	log.Printf("Delay for %v minutes\n", delayInMinutes)
 	cmd := exec.Command("/usr/bin/at", "now", "+", delayInMinutes, "minutes", "-f", doneCommand)
 	err := cmd.Run()
 	if err != nil {
