@@ -11,13 +11,10 @@ const doneCommand = `/usr/local/bin/t30-on`
 //Done A handler for octorpint server print done event.
 func Done(w http.ResponseWriter, r *http.Request) {
 	delays, ok := r.URL.Query()["delay"]
-
 	delayInMinutes := "0"
-	if !ok || len(delays[0]) < 1 {
-	} else {
+	if ok && 0 != len(delays[0]) {
 		delayInMinutes = delays[0]
 	}
-
 	log.Printf("Delay for %v minutes\n", delayInMinutes)
 	cmd := exec.Command("/usr/bin/at", "now", "+", delayInMinutes, "minutes", "-f", doneCommand)
 	err := cmd.Run()
