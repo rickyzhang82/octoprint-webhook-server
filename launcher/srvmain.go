@@ -16,6 +16,7 @@ const (
 
 func appCleanup() {
 	log.Printf("Quit webhook server.")
+	os.Exit(0)
 }
 
 func main() {
@@ -37,7 +38,6 @@ func main() {
 		s := <-sigs
 		log.Printf("RECEIVED SIGNAL: %s", s)
 		appCleanup()
-		os.Exit(1)
 	}()
 
 	log.Printf("Starting webhook server on port %v ...", port)
