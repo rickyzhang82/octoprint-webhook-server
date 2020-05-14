@@ -1,0 +1,13 @@
+# /usr/lib/systemd/system/octoprint-webhook-server.service
+[Unit]
+Description=Octoprint Web Hook Server
+After=network.target
+
+[Service]
+User=Ricky
+Group=Ricky
+Restart=always
+ExecStart=/usr/bin/octoprint-webhook-server.o
+
+[Install]
+WantedBy=multi-user.target
