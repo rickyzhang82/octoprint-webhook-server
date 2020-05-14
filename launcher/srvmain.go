@@ -9,13 +9,13 @@ import (
 )
 
 const (
-	defaultPort           = "12000"
-	defaultPortEnvVarName = "WEBHOOK_SEREVER_PORT"
+	defaultPort    = "12000"
+	portEnvVarName = "WEBHOOK_SEREVER_PORT"
 )
 
 func main() {
 	http.HandleFunc("/done", handler.Done)
-	portEnvVar := os.Getenv(defaultPortEnvVarName)
+	portEnvVar := os.Getenv(portEnvVarName)
 	port := defaultPort
 	if 0 != len(portEnvVar) {
 		port = portEnvVar
